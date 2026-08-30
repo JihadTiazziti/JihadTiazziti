@@ -1,7 +1,7 @@
-![Header](https://capsule-render.vercel.app/api?type=waving&color=0:1e2327,100:00C4CC&height=220&section=header&text=Jihad%20Tiazziti&fontSize=55&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Android%20%26%20Flutter%20Mobile%20Developer&descAlignY=55&descSize=20)
+![Header](https://capsule-render.vercel.app/api?type=waving&color=0:1e2327,100:00C4CC&height=220&section=header&text=Jihad%20Tiazziti&fontSize=55&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Android%20and%20Flutter%20Mobile%20Developer&descAlignY=55&descSize=20)
 
 <p align="center">
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&pause=1000&color=00C4CC&center=true&vCenter=true&width=550&lines=Kotlin+%7C+Flutter+%7C+Android+SDK;MVVM+%2B+Room+%2B+SQLite;Building+J-Shop+%26+Timz;Looking+for+my+first+opportunity" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&pause=1000&color=00C4CC&center=true&vCenter=true&width=550&lines=Kotlin+%7C+Flutter+%7C+Android+SDK;MVVM+%2B+Room+%2B+SQLite;Building+J-Shop+and+Timz;Looking+for+my+first+opportunity" alt="Typing SVG" />
 </p>
 
 <p align="center">
