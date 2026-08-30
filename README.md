@@ -1,7 +1,7 @@
 ![Header](https://capsule-render.vercel.app/api?type=waving&color=0:1e2327,100:00C4CC&height=220&section=header&text=Jihad%20Tiazziti&fontSize=55&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Android%20%26%20Flutter%20Mobile%20Developer&descAlignY=55&descSize=20)
 
 <p align="center">
-<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=20&pause=1000&color=00C4CC&center=true&vCenter=true&width=550&lines=Kotlin+%7C+Flutter+%7C+Android+SDK;MVVM+%2B+Room+%2B+SQLite;Building+J-Shop+%26+Timz;Looking+for+my+first+opportunity" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&pause=1000&color=00C4CC&center=true&vCenter=true&width=550&lines=Kotlin+%7C+Flutter+%7C+Android+SDK;MVVM+%2B+Room+%2B+SQLite;Building+J-Shop+%26+Timz;Looking+for+my+first+opportunity" alt="Typing SVG" />
 </p>
 
 <p align="center">
@@ -82,7 +82,7 @@ Collaborated with a development team to design and build a mobile app for managi
 ## 📊 GitHub Stats
 
 ![Jihad's GitHub stats](https://github-readme-stats.vercel.app/api?username=JihadTiazziti&show_icons=true&theme=radical&hide_border=true)
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=JihadTiazziti&theme=radical&hide_border=true)
+![GitHub Streak](https://streak-stats.demolab.com/?user=JihadTiazziti&theme=radical&hide_border=true)
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=JihadTiazziti&layout=compact&theme=radical&hide_border=true)
 
