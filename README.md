@@ -81,16 +81,16 @@ Collaborated with a development team to design and build a mobile app for managi
 
 ## 📊 GitHub Stats
 
-![Jihad's GitHub stats](https://github-readme-stats.vercel.app/api?username=JihadTiazziti&show_icons=true&theme=radical&hide_border=true)
+![Jihad's GitHub stats](https://github-readme-stats-sigma-rouge.vercel.app/api?username=JihadTiazziti&show_icons=true&theme=radical&hide_border=true)
 ![GitHub Streak](https://streak-stats.demolab.com/?user=JihadTiazziti&theme=radical&hide_border=true)
 
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=JihadTiazziti&layout=compact&theme=radical&hide_border=true)
+![Top Langs](https://github-readme-stats-sigma-rouge.vercel.app/api/top-langs/?username=JihadTiazziti&layout=compact&theme=radical&hide_border=true)
 
 ---
 
 ## 🌍 Languages
 
-🗣️ **Arabic** (Native) · 🇫🇷 **French** (B2) · 🇬🇧 **English** (B2)
+🗣️ **Arabic** (Native) · 🇫🇷 **French** (B2) · 🇬🇧 **English** (B1)
 
 ## ⚽ Beyond Code
 
