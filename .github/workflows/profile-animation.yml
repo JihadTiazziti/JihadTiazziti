@@ -1,0 +1,39 @@
+name: Generate Profile Animation
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "github_profile_card_jihad (1).png"
+      - "scripts/generate_profile_animation.py"
+      - ".github/workflows/profile-animation.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Pillow
+        run: pip install pillow
+
+      - name: Generate animated profile card
+        run: python scripts/generate_profile_animation.py
+
+      - name: Commit generated GIF
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/profile-animation.gif
+          git diff --cached --quiet || git commit -m "Update animated profile card"
+          git push
