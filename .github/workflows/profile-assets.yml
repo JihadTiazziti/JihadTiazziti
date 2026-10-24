@@ -1,0 +1,68 @@
+name: Generate Profile Assets
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 6 * * 1"
+  push:
+    branches: [main]
+    paths:
+      - "assets/skills.json"
+      - "assets/toolmix.json"
+      - "scripts/generate_profile_assets.py"
+      - ".github/workflows/profile-assets.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate self-hosted profile SVGs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/generate_profile_assets.py
+
+      - name: Commit generated assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            assets/radar-skills-dark.svg \
+            assets/radar-skills-light.svg \
+            assets/radar-tools-dark.svg \
+            assets/radar-tools-light.svg \
+            assets/card-stats-dark.svg \
+            assets/card-stats-light.svg \
+            assets/card-languages-dark.svg \
+            assets/card-languages-light.svg
+
+          if git diff --cached --quiet; then
+            echo "No profile asset changes"
+            exit 0
+          fi
+
+          git commit -m "Update self-hosted profile assets"
+
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep 2
+          done
+
+          echo "Failed to push profile assets after retries"
+          exit 1
