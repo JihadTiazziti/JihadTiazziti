@@ -20,7 +20,7 @@
 
 <br>
 
-<img src="https://profile-counter.glitch.me/JihadTiazziti/count.svg" alt="Profile views"/>
+<img src="https://hits.sh/github.com/JihadTiazziti.svg?label=profile%20views&color=22d3ee&labelColor=0d1117&logo=github" alt="Profile views"/>
 
 </div>
 
