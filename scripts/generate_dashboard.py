@@ -58,7 +58,7 @@ def build_frame(src, idx):
     d.rounded_rectangle(left_box, radius=16, fill=panel_fill, outline=(30, 151, 190, 255), width=2)
     d.rounded_rectangle(right_box, radius=16, fill=panel_fill, outline=(30, 151, 190, 255), width=2)
     d.text((51, 88), "● VISUAL_MAP", font=font(18, True), fill=cyan)
-    d.text((389, 91), "SIGNAL_020%", font=font(10), fill=(178, 211, 224, 255))
+    d.text((389, 91), "SIGNAL_035%", font=font(10), fill=(178, 211, 224, 255))
     d.text((550, 88), "■ SYSTEM_INFO", font=font(18, True), fill=cyan)
 
     pulse = int(120 + 135 * (0.5 + 0.5 * math.sin(t * math.tau * 2)))
@@ -68,21 +68,23 @@ def build_frame(src, idx):
 
     portrait_source = src.crop((25, 20, min(455, src.width), min(600, src.height))).convert("RGBA")
     portrait = fit_cover(portrait_source, (300, 270))
-    portrait = ImageEnhance.Contrast(portrait.convert("RGB")).enhance(1.15).convert("RGBA")
+    portrait = ImageEnhance.Contrast(portrait.convert("RGB")).enhance(1.12).convert("RGBA")
 
     signal_w, signal_h = 410, 285
     signal = Image.new("RGBA", (signal_w, signal_h), (2, 15, 23, 255))
     sx = (signal_w - portrait.width) // 2
     sy = (signal_h - portrait.height) // 2
 
+    # Raise portrait visibility while keeping the hacker/binary treatment dominant.
     p = portrait.copy()
-    p.putalpha(122)
+    p.putalpha(165)
     signal.alpha_composite(p, (sx, sy))
-    signal = Image.alpha_composite(signal, Image.new("RGBA", signal.size, (0, 24, 36, 88)))
+    signal = Image.alpha_composite(signal, Image.new("RGBA", signal.size, (0, 24, 36, 68)))
 
+    # Soft white hologram bloom over the face.
     bloom = Image.new("RGBA", signal.size, (0, 0, 0, 0))
     bl = ImageDraw.Draw(bloom)
-    glow_alpha = 32 + int(18 * (0.5 + 0.5 * math.sin(t * math.tau * 1.4)))
+    glow_alpha = 28 + int(14 * (0.5 + 0.5 * math.sin(t * math.tau * 1.4)))
     bl.ellipse((118, 36, 305, 250), fill=(235, 248, 255, glow_alpha))
     bloom = bloom.filter(ImageFilter.GaussianBlur(22))
     signal = Image.alpha_composite(signal, bloom)
@@ -101,31 +103,32 @@ def build_frame(src, idx):
     line_no = 0
     while y < signal_h - 4:
         if line_no % 3 == 1:
-            fill = (225, 247, 255, 160)
+            fill = (225, 247, 255, 145)
         else:
-            fill = (72, 234, 255, 132 + ((row_idx + idx) % 3) * 16)
+            fill = (72, 234, 255, 120 + ((row_idx + idx) % 3) * 14)
         bd.text((10, y), rows[row_idx % len(rows)], font=bin_font, fill=fill)
         y += 17
         row_idx += 1
         line_no += 1
 
+    # Thinner scanner: pale center with subtle cyan glow.
     scan_y = int(8 + (signal_h - 16) * ((idx % FRAMES) / (FRAMES - 1)))
     scan = Image.new("RGBA", signal.size, (0, 0, 0, 0))
     sd = ImageDraw.Draw(scan)
-    sd.rectangle((0, scan_y - 4, signal_w, scan_y + 5), fill=(35, 235, 255, 55))
-    sd.rectangle((0, scan_y - 1, signal_w, scan_y + 2), fill=(245, 252, 255, 235))
-    scan = scan.filter(ImageFilter.GaussianBlur(1.1))
+    sd.rectangle((0, scan_y - 2, signal_w, scan_y + 3), fill=(35, 235, 255, 38))
+    sd.rectangle((0, scan_y, signal_w, scan_y + 1), fill=(245, 252, 255, 180))
+    scan = scan.filter(ImageFilter.GaussianBlur(0.8))
     signal = Image.alpha_composite(signal, scan)
 
     if idx in {5, 6, 15, 16, 25, 26}:
         gd = ImageDraw.Draw(signal)
         for gy, x1, x2 in ((66, 105, 315), (154, 75, 350), (223, 125, 300)):
-            gd.rectangle((x1, gy, x2, gy + 2), fill=(242, 250, 255, 150))
+            gd.rectangle((x1, gy, x2, gy + 1), fill=(242, 250, 255, 120))
 
     px, py = 48, 116
     canvas.alpha_composite(signal, (px, py))
     d.rounded_rectangle((px, py, px + signal_w, py + signal_h), radius=14, outline=cyan, width=2)
-    d.text((52, 399), "> PORTRAIT.SIGNAL = 20%  •  WHITE_NOISE.LINKED", font=font(9), fill=(192, 215, 225, 255))
+    d.text((52, 399), "> PORTRAIT.SIGNAL = 35%  •  WHITE_NOISE.LINKED", font=font(9), fill=(192, 215, 225, 255))
 
     rows_info = [
         ("Name", "Jihad Tiazziti", white),
@@ -148,9 +151,9 @@ def build_frame(src, idx):
         cursor_x = 550 + int(d.textlength(status, font=font(11))) + 5
         d.rectangle((cursor_x, 390, cursor_x + 6, 401), fill=green)
 
-    # Footer identity: uppercase name clearly separated from the role.
-    d.text((W // 2, 458), "JIHAD TIAZZITI", anchor="mm", font=font(24, True), fill=white)
-    d.text((W // 2, 500), "MOBILE APPLICATION DEVELOPER", anchor="mm", font=font(10, True), fill=cyan)
+    # Footer identity: uppercase and comfortably separated.
+    d.text((W // 2, 454), "JIHAD TIAZZITI", anchor="mm", font=font(24, True), fill=white)
+    d.text((W // 2, 492), "MOBILE APPLICATION DEVELOPER", anchor="mm", font=font(10, True), fill=cyan)
 
     return canvas.convert("RGB")
 
