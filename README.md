@@ -76,9 +76,9 @@
 
 <img src="https://streak-stats.demolab.com?user=JihadTiazziti&theme=github-dark-blue&hide_border=true&background=00000000" alt="Jihad Tiazziti GitHub streak" />
 
-<br/>
+<br/><br/>
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=JihadTiazziti&theme=github-compact&hide_border=true&area=true" width="100%" alt="Jihad Tiazziti GitHub activity graph" />
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=JihadTiazziti&bg_color=0d1117&color=58a6ff&line=00ff9c&point=ffffff&area_color=00ff9c&area=true&hide_border=true&custom_title=Contribution%20Activity" width="100%" alt="Jihad Tiazziti contribution activity graph" />
 
 </div>
 
@@ -99,20 +99,20 @@
 <div align="center">
 
 <a href="https://www.linkedin.com/in/jihad-tiazziti/">
-<img src="https://img.shields.io/badge/LINKEDIN-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
+<img src="https://img.shields.io/badge/LINKEDIN-CONNECT-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
 </a>
 
 <a href="https://jihadtiazziti.netlify.app">
-<img src="https://img.shields.io/badge/PORTFOLIO-00FF9C?style=for-the-badge&logo=googlechrome&logoColor=black"/>
+<img src="https://img.shields.io/badge/PORTFOLIO-VIEW%20PROJECTS-00FF9C?style=for-the-badge&logo=googlechrome&logoColor=black" alt="Portfolio"/>
 </a>
 
 <a href="https://github.com/JihadTiazziti">
-<img src="https://img.shields.io/badge/GITHUB-181717?style=for-the-badge&logo=github&logoColor=white"/>
+<img src="https://img.shields.io/badge/GITHUB-FOLLOW-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
 </a>
 
 <br/><br/>
 
-<img src="https://img.shields.io/badge/OPEN%20TO-INTERNSHIPS%20%26%20JUNIOR%20ROLES-00C2FF?style=flat-square" />
+<img src="https://img.shields.io/badge/STATUS-OPEN%20TO%20INTERNSHIPS%20%26%20JUNIOR%20ROLES-00C2FF?style=flat-square" alt="Open to internships and junior roles" />
 
 </div>
 
