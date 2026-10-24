@@ -2,15 +2,17 @@
 
 # ⚡ JIHAD TIAZZITI
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=25&duration=2500&pause=700&color=00FF9C&center=true&vCenter=true&width=650&lines=%3E+Mobile+Application+Developer;%3E+Android+%7C+Kotlin+%7C+Flutter;%3E+Building+real-world+applications...;%3E+Always+learning.+Always+building." alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=25&duration=2500&pause=700&color=00FF9C&center=true&vCenter=true&width=700&lines=%3E+Mobile+Application+Developer;%3E+Android+%7C+Kotlin+%7C+Flutter;%3E+Turning+ideas+into+real+apps...;%3E+Build.+Learn.+Improve." alt="Typing SVG" />
+
+<br/>
 
 ```text
 ┌──────────────────────────────────────────────┐
-│  USER    : Jihad Tiazziti                    │
-│  ROLE    : Mobile Application Developer      │
-│  STACK   : Kotlin • Android • Flutter        │
-│  STATUS  : Open to opportunities             │
-│  FOCUS   : Building & improving every day    │
+│ USER    : Jihad Tiazziti                     │
+│ ROLE    : Mobile Application Developer       │
+│ STACK   : Kotlin • Android • Flutter         │
+│ STATUS  : Open to opportunities              │
+│ FOCUS   : Building & improving every day     │
 └──────────────────────────────────────────────┘
 ```
 
@@ -18,21 +20,31 @@
 
 ---
 
-## `> whoami`
+## 👨‍💻 `whoami`
+
+Mobile Application Developer specialized in **Android and Kotlin**, with hands-on experience building practical mobile applications using **Firebase, Room, SQLite and REST APIs**.
+
+I enjoy turning ideas into functional apps, solving technical problems and continuously improving my development skills.
+
+🎯 Currently open to **internship and junior Mobile / Android Developer opportunities**.
 
 ```kotlin
 class JihadTiazziti {
 
     val role = "Mobile Application Developer"
 
-    val technologies = listOf(
+    val mobile = listOf(
         "Kotlin",
         "Android SDK",
         "Flutter",
-        "Dart",
+        "Dart"
+    )
+
+    val backendAndData = listOf(
         "Firebase",
         "Room",
         "SQLite",
+        "SQL",
         "REST APIs"
     )
 
@@ -44,10 +56,8 @@ class JihadTiazziti {
         "VS Code"
     )
 
-    val currentlyLearning = "Building better mobile experiences 🚀"
-
     fun goal() =
-        "Turn ideas into useful applications."
+        "Turn ideas into useful applications 🚀"
 }
 ```
 
@@ -65,27 +75,28 @@ class JihadTiazziti {
 
 # 🚀 `PROJECTS/`
 
-### 🛒 J-SHOP
+## 🛒 J-SHOP
 
-> Android e-commerce application built with Kotlin.
+> Modern Android e-commerce application built with **Kotlin, XML and Firebase**.
 
 ```text
 STATUS        █████████████████░░░  IN DEVELOPMENT
 LANGUAGE      Kotlin
 PLATFORM      Android
+UI            XML
 BACKEND       Firebase
 DATABASE      Room / SQLite
 ```
 
-**Features**
+### Features
 
-`Authentication` • `Product Catalog` • `Search` • `Cart` • `Firebase` • `Modern UI`
+`Authentication` • `Product Catalog` • `Search & Filters` • `Shopping Cart` • `Firebase` • `Modern UI`
 
 ---
 
-### 📦 G-STOCK
+## 📦 G-STOCK
 
-> Inventory management application built with Flutter.
+> Inventory management application built with **Flutter, Dart and SQLite**.
 
 ```text
 LANGUAGE      Dart
@@ -94,9 +105,9 @@ DATABASE      SQLite
 TYPE          Inventory Management
 ```
 
-**Features**
+### Features
 
-`Dashboard` • `Categories` • `Components` • `Members` • `Borrowings` • `CRUD`
+`Dashboard` • `Categories` • `Components` • `Members` • `Borrowings` • `CRUD` • `Search & Filters`
 
 ---
 
@@ -126,7 +137,7 @@ TYPE          Inventory Management
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/JihadTiazziti/JihadTiazziti/output/github-contribution-grid-snake-dark.svg" alt="Snake animation" />
+<img src="https://raw.githubusercontent.com/JihadTiazziti/JihadTiazziti/output/github-contribution-grid-snake-dark.svg" alt="GitHub Contribution Snake" />
 
 </div>
 
