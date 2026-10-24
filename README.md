@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/profile-dashboard.png" width="100%" alt="Jihad Tiazziti cyber developer profile dashboard"/>
+<img src="./assets/profile-dashboard.gif" width="100%" alt="Jihad Tiazziti animated cyber developer profile dashboard"/>
 
 </div>
 
