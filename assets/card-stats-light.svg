@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="205" viewBox="0 0 500 205" role="img">
+  <rect width="500" height="205" rx="16" fill="#ffffff"/>
+  <rect x="1" y="1" width="498" height="203" rx="15" fill="none" stroke="#d0d7de"/>
+  <text x="26" y="36" fill="#1f2328" font-size="19" font-weight="700" font-family="monospace">GitHub system stats</text>
+  <text x="26" y="57" fill="#57606a" font-size="11" font-family="monospace">generated inside this repository</text>
+  <rect x="28" y="84" width="210" height="46" rx="10" fill="#f6f8fa"/>
+  <text x="42" y="103" fill="#57606a" font-size="11" font-family="monospace">Public repos</text>
+  <text x="42" y="123" fill="#0969da" font-size="19" font-weight="700" font-family="monospace">2</text>
+  <rect x="258" y="84" width="210" height="46" rx="10" fill="#f6f8fa"/>
+  <text x="272" y="103" fill="#57606a" font-size="11" font-family="monospace">Followers</text>
+  <text x="272" y="123" fill="#0969da" font-size="19" font-weight="700" font-family="monospace">2</text>
+  <rect x="28" y="143" width="210" height="46" rx="10" fill="#f6f8fa"/>
+  <text x="42" y="162" fill="#57606a" font-size="11" font-family="monospace">Stars earned</text>
+  <text x="42" y="182" fill="#0969da" font-size="19" font-weight="700" font-family="monospace">2</text>
+  <rect x="258" y="143" width="210" height="46" rx="10" fill="#f6f8fa"/>
+  <text x="272" y="162" fill="#57606a" font-size="11" font-family="monospace">Forks</text>
+  <text x="272" y="182" fill="#0969da" font-size="19" font-weight="700" font-family="monospace">0</text>
+</svg>
