@@ -4,7 +4,7 @@
 
 <br>
 
-<a href="https://github.com/JihadTiazziti">
+<a href="https://www.instagram.com/jihad.tiazziti/">
   <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=25&duration=2600&pause=850&color=22D3EE&center=true&vCenter=true&width=880&lines=Jihad+Tiazziti+-+Mobile+Application+Developer;Android+%2F+Kotlin+%2F+Flutter+%2F+Firebase;Building+practical+mobile+apps;Build.+Learn.+Improve." alt="Animated developer tagline"/>
 </a>
 
@@ -12,7 +12,7 @@
 
 <a href="https://www.linkedin.com/in/jihad-tiazziti/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>&nbsp;&nbsp;
 <a href="https://jihadtiazziti.netlify.app"><img src="https://img.shields.io/badge/Portfolio-0d1117?style=for-the-badge&logo=googlechrome&logoColor=22d3ee" alt="Portfolio"></a>&nbsp;&nbsp;
-<a href="https://github.com/JihadTiazziti"><img src="https://img.shields.io/badge/GitHub-0d1117?style=for-the-badge&logo=github&logoColor=00ff9c" alt="GitHub"></a>
+<a href="https://www.instagram.com/jihad.tiazziti/"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram"></a>
 
 <br>
 
