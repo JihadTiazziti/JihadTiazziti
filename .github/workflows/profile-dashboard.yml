@@ -6,7 +6,7 @@ on:
     branches: [main]
     paths:
       - "github_profile_card_jihad (1).png"
-      - "scripts/generate_dashboard.py"
+      - "scripts/generate_terminal_banner.py"
       - ".github/workflows/profile-dashboard.yml"
 
 permissions:
@@ -29,15 +29,15 @@ jobs:
       - name: Install Pillow
         run: pip install pillow
 
-      - name: Generate animated cyber dashboard
-        run: python scripts/generate_dashboard.py
+      - name: Generate terminal dither banners
+        run: python scripts/generate_terminal_banner.py
 
-      - name: Commit generated dashboard
+      - name: Commit generated banners
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/profile-dashboard.gif assets/profile-dashboard.png
-          git diff --cached --quiet || git commit -m "Update animated profile dashboard"
+          git add assets/banner-dark.svg assets/banner-light.svg
+          git diff --cached --quiet || git commit -m "Update terminal profile banners"
 
           for attempt in 1 2 3 4 5; do
             git fetch origin main
@@ -48,5 +48,5 @@ jobs:
             sleep 2
           done
 
-          echo "Failed to push dashboard after retries"
+          echo "Failed to push banners after retries"
           exit 1
