@@ -75,13 +75,11 @@ def build_frame(src, idx):
     sx = (signal_w - portrait.width) // 2
     sy = (signal_h - portrait.height) // 2
 
-    # Keep portrait dark, but add pale/white hologram lift so facial structure reads better.
     p = portrait.copy()
     p.putalpha(122)
     signal.alpha_composite(p, (sx, sy))
     signal = Image.alpha_composite(signal, Image.new("RGBA", signal.size, (0, 24, 36, 88)))
 
-    # Soft white signal bloom over the face zone.
     bloom = Image.new("RGBA", signal.size, (0, 0, 0, 0))
     bl = ImageDraw.Draw(bloom)
     glow_alpha = 32 + int(18 * (0.5 + 0.5 * math.sin(t * math.tau * 1.4)))
@@ -102,7 +100,6 @@ def build_frame(src, idx):
     row_idx = phase
     line_no = 0
     while y < signal_h - 4:
-        # Alternate cyan and pale-white rows for the hologram/signal look.
         if line_no % 3 == 1:
             fill = (225, 247, 255, 160)
         else:
@@ -112,7 +109,6 @@ def build_frame(src, idx):
         row_idx += 1
         line_no += 1
 
-    # Moving scanner: white core + cyan glow.
     scan_y = int(8 + (signal_h - 16) * ((idx % FRAMES) / (FRAMES - 1)))
     scan = Image.new("RGBA", signal.size, (0, 0, 0, 0))
     sd = ImageDraw.Draw(scan)
@@ -121,7 +117,6 @@ def build_frame(src, idx):
     scan = scan.filter(ImageFilter.GaussianBlur(1.1))
     signal = Image.alpha_composite(signal, scan)
 
-    # A few white glitch flashes to make the face feel like a signal reconstruction.
     if idx in {5, 6, 15, 16, 25, 26}:
         gd = ImageDraw.Draw(signal)
         for gy, x1, x2 in ((66, 105, 315), (154, 75, 350), (223, 125, 300)):
@@ -153,8 +148,9 @@ def build_frame(src, idx):
         cursor_x = 550 + int(d.textlength(status, font=font(11))) + 5
         d.rectangle((cursor_x, 390, cursor_x + 6, 401), fill=green)
 
-    d.text((W // 2, 462), "Jihad Tiazziti", anchor="ma", font=font(25, True), fill=white)
-    d.text((W // 2, 491), "MOBILE APPLICATION DEVELOPER", anchor="ma", font=font(11), fill=cyan)
+    # Footer identity: uppercase name clearly separated from the role.
+    d.text((W // 2, 458), "JIHAD TIAZZITI", anchor="mm", font=font(24, True), fill=white)
+    d.text((W // 2, 500), "MOBILE APPLICATION DEVELOPER", anchor="mm", font=font(10, True), fill=cyan)
 
     return canvas.convert("RGB")
 
