@@ -1,0 +1,11 @@
+{
+  "title": "Mobile Development",
+  "items": [
+    {"label": "Android", "value": 9},
+    {"label": "Kotlin", "value": 9},
+    {"label": "Flutter", "value": 7},
+    {"label": "Firebase", "value": 8},
+    {"label": "REST APIs", "value": 8},
+    {"label": "UI / UX", "value": 7}
+  ]
+}
