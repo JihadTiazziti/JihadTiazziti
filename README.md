@@ -12,6 +12,13 @@
 
 <img src="https://skillicons.dev/icons?i=kotlin,androidstudio,flutter,dart,firebase,sqlite,git,github,figma,vscode&perline=10" />
 
+<br/><br/>
+
+<img src="https://img.shields.io/badge/ANDROID-DEVELOPER-3DDC84?style=flat-square&logo=android&logoColor=white"/>
+<img src="https://img.shields.io/badge/KOTLIN-MOBILE-7F52FF?style=flat-square&logo=kotlin&logoColor=white"/>
+<img src="https://img.shields.io/badge/FLUTTER-CROSS--PLATFORM-02569B?style=flat-square&logo=flutter&logoColor=white"/>
+<img src="https://img.shields.io/badge/FIREBASE-BACKEND-FFCA28?style=flat-square&logo=firebase&logoColor=black"/>
+
 </div>
 
 ---
@@ -22,17 +29,15 @@
 
 > Modern Android e-commerce application built with **Kotlin, XML and Firebase**.
 
-```text
-STATUS        █████████████████░░░  IN DEVELOPMENT
-LANGUAGE      Kotlin
-PLATFORM      Android
-UI            XML
-BACKEND       Firebase
-DATABASE      Room / SQLite
-```
+<p>
+<img src="https://img.shields.io/badge/STATUS-IN%20DEVELOPMENT-00C2FF?style=flat-square"/>
+<img src="https://img.shields.io/badge/Kotlin-7F52FF?style=flat-square&logo=kotlin&logoColor=white"/>
+<img src="https://img.shields.io/badge/Android-3DDC84?style=flat-square&logo=android&logoColor=white"/>
+<img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black"/>
+<img src="https://img.shields.io/badge/Room%20%2F%20SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white"/>
+</p>
 
-### Features
-
+**Core features**  
 `Authentication` • `Product Catalog` • `Search & Filters` • `Shopping Cart` • `Firebase` • `Modern UI`
 
 ---
@@ -41,15 +46,14 @@ DATABASE      Room / SQLite
 
 > Inventory management application built with **Flutter, Dart and SQLite**.
 
-```text
-LANGUAGE      Dart
-FRAMEWORK     Flutter
-DATABASE      SQLite
-TYPE          Inventory Management
-```
+<p>
+<img src="https://img.shields.io/badge/Flutter-02569B?style=flat-square&logo=flutter&logoColor=white"/>
+<img src="https://img.shields.io/badge/Dart-0175C2?style=flat-square&logo=dart&logoColor=white"/>
+<img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white"/>
+<img src="https://img.shields.io/badge/CRUD-INVENTORY-00C2FF?style=flat-square"/>
+</p>
 
-### Features
-
+**Core features**  
 `Dashboard` • `Categories` • `Components` • `Members` • `Borrowings` • `CRUD` • `Search & Filters`
 
 ---
@@ -79,6 +83,10 @@ TYPE          Inventory Management
 ## 📡 `CONNECT`
 
 <div align="center">
+
+<a href="https://www.linkedin.com/in/jihad-tiazziti/">
+<img src="https://img.shields.io/badge/LINKEDIN-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
+</a>
 
 <a href="https://jihadtiazziti.netlify.app">
 <img src="https://img.shields.io/badge/PORTFOLIO-00FF9C?style=for-the-badge&logo=googlechrome&logoColor=black"/>
