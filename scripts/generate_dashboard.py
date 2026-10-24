@@ -1,9 +1,13 @@
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
+import math
 
 SRC = Path("github_profile_card_jihad (1).png")
-OUT = Path("assets/profile-dashboard.png")
-W, H = 1200, 540
+OUT_GIF = Path("assets/profile-dashboard.gif")
+OUT_PNG = Path("assets/profile-dashboard.png")
+W, H = 1100, 495
+FRAMES = 32
+DURATION = 105
 
 
 def font(size, bold=False):
@@ -19,25 +23,15 @@ def font(size, bold=False):
     return ImageFont.load_default()
 
 
-def fit_crop(im, size):
+def fit_contain(im, size):
     tw, th = size
-    ratio = max(tw / im.width, th / im.height)
-    nw, nh = round(im.width * ratio), round(im.height * ratio)
-    im = im.resize((nw, nh), Image.Resampling.LANCZOS)
-    left = max(0, (nw - tw) // 2)
-    top = max(0, (nh - th) // 2)
-    return im.crop((left, top, left + tw, top + th))
+    ratio = min(tw / im.width, th / im.height)
+    nw, nh = max(1, round(im.width * ratio)), max(1, round(im.height * ratio))
+    return im.resize((nw, nh), Image.Resampling.LANCZOS)
 
 
-def main():
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    src = Image.open(SRC).convert("RGB")
-
-    # The original portrait is preserved in the left side of the existing card.
-    # Crop only that portrait region, then apply the cyber signal treatment.
-    portrait = src.crop((0, 0, min(500, src.width), src.height))
-    portrait = fit_crop(portrait, (490, 330)).convert("RGBA")
-
+def build_frame(src, idx):
+    t = idx / FRAMES
     canvas = Image.new("RGBA", (W, H), (3, 10, 16, 255))
     d = ImageDraw.Draw(canvas)
 
@@ -47,67 +41,84 @@ def main():
     muted = (112, 155, 200, 255)
     line = (18, 61, 80, 255)
 
-    # Background and frame
-    d.rounded_rectangle((12, 12, W - 12, H - 12), radius=22, outline=(18, 189, 232, 255), width=2)
-    d.ellipse((32, 31, 44, 43), fill=(255, 95, 87, 255))
-    d.ellipse((54, 31, 66, 43), fill=(254, 188, 46, 255))
-    d.ellipse((76, 31, 88, 43), fill=(40, 200, 64, 255))
-    d.text((112, 29), "jihad@dev:~/profile", font=font(17), fill=green)
-    d.text((900, 30), "// BUILD SOMETHING USEFUL >_", font=font(14), fill=(90, 167, 255, 255))
+    # Outer terminal frame
+    border_alpha = 165 + int(55 * (0.5 + 0.5 * math.sin(t * math.tau)))
+    d.rounded_rectangle((10, 10, W - 10, H - 10), radius=20, outline=(18, 189, 232, border_alpha), width=2)
+    d.ellipse((29, 28, 41, 40), fill=(255, 95, 87, 255))
+    d.ellipse((50, 28, 62, 40), fill=(254, 188, 46, 255))
+    d.ellipse((71, 28, 83, 40), fill=(40, 200, 64, 255))
+    d.text((105, 26), "jihad@dev:~/profile", font=font(15), fill=green)
+    d.text((820, 27), "// BUILD SOMETHING USEFUL >_", font=font(12), fill=(90, 167, 255, 255))
 
-    # Panels
-    left_box = (32, 76, 552, 448)
-    right_box = (572, 76, 1168, 448)
-    d.rounded_rectangle(left_box, radius=18, fill=(5, 19, 29, 248), outline=(30, 151, 190, 255), width=2)
-    d.rounded_rectangle(right_box, radius=18, fill=(5, 19, 29, 248), outline=(30, 151, 190, 255), width=2)
-    d.text((58, 95), "● VISUAL_MAP", font=font(20, True), fill=cyan)
-    d.text((432, 98), "SIGNAL_020%", font=font(12), fill=(120, 165, 196, 255))
-    d.text((600, 95), "■ SYSTEM_INFO", font=font(20, True), fill=cyan)
-    d.text((1045, 99), "ONLINE", font=font(13), fill=green)
-    d.ellipse((1130, 99, 1142, 111), fill=green)
+    # Main panels
+    left_box = (28, 70, 505, 410)
+    right_box = (525, 70, 1072, 410)
+    panel_fill = (5, 19, 29, 248)
+    d.rounded_rectangle(left_box, radius=16, fill=panel_fill, outline=(30, 151, 190, 255), width=2)
+    d.rounded_rectangle(right_box, radius=16, fill=panel_fill, outline=(30, 151, 190, 255), width=2)
+    d.text((51, 88), "● VISUAL_MAP", font=font(18, True), fill=cyan)
+    d.text((389, 91), "SIGNAL_020%", font=font(10), fill=(120, 165, 196, 255))
+    d.text((550, 88), "■ SYSTEM_INFO", font=font(18, True), fill=cyan)
 
-    # Portrait area - keep face recognizable but signal-dominant.
-    px, py = 42, 118
-    signal = Image.new("RGBA", portrait.size, (0, 0, 0, 0))
-    signal.alpha_composite(portrait)
+    # ONLINE indicator pulse
+    pulse = int(120 + 135 * (0.5 + 0.5 * math.sin(t * math.tau * 2)))
+    d.text((955, 92), "ONLINE", font=font(11), fill=(53, 255, 158, pulse))
+    r = 4 + int(2 * (0.5 + 0.5 * math.sin(t * math.tau * 2)))
+    d.ellipse((1038-r, 96-r, 1038+r, 96+r), fill=(53, 255, 158, pulse))
 
-    # dark cyan wash makes the portrait about 20-30% visually dominant
-    wash = Image.new("RGBA", portrait.size, (0, 23, 34, 128))
-    signal = Image.alpha_composite(signal, wash)
+    # Build a smaller portrait inside the visual map (no face zoom).
+    portrait_source = src.crop((0, 0, min(500, src.width), src.height)).convert("RGBA")
+    portrait = fit_contain(portrait_source, (355, 275))
 
-    # mild cyan monochrome veil, preserving facial structure
-    veil = Image.new("RGBA", portrait.size, (0, 185, 220, 35))
-    signal = Image.alpha_composite(signal, veil)
+    signal_w, signal_h = 410, 285
+    signal = Image.new("RGBA", (signal_w, signal_h), (2, 15, 23, 255))
+    sx = (signal_w - portrait.width) // 2
+    sy = (signal_h - portrait.height) // 2
 
-    # Binary stream overlay
+    # Keep the portrait visible but secondary to the cyber signal.
+    p = portrait.copy()
+    p.putalpha(150)
+    signal.alpha_composite(p, (sx, sy))
+    signal = Image.alpha_composite(signal, Image.new("RGBA", signal.size, (0, 24, 36, 82)))
+
+    # Moving binary stream.
     bd = ImageDraw.Draw(signal)
-    bin_font = font(10)
+    bin_font = font(9)
     rows = [
         "01001101 11001010 00101100 10110101 01100110",
         "10100110 00110101 11001001 01010110 10010101",
         "00110110 11100101 01001011 10101001 00110110",
         "11001010 01010101 10110010 00101101 11100010",
     ]
-    y = 14
-    r = 0
-    while y < portrait.height - 8:
-        bd.text((14, y), rows[r % len(rows)], font=bin_font, fill=(50, 232, 255, 150))
-        y += 19
-        r += 1
+    phase = idx % len(rows)
+    y = 10 - (idx % 5)
+    row_idx = phase
+    while y < signal_h - 4:
+        alpha = 105 + ((row_idx + idx) % 3) * 22
+        bd.text((10, y), rows[row_idx % len(rows)], font=bin_font, fill=(50, 232, 255, alpha))
+        y += 17
+        row_idx += 1
 
-    # horizontal scan signal
-    scan = Image.new("RGBA", portrait.size, (0, 0, 0, 0))
+    # Animated horizontal scanner.
+    scan_y = int(8 + (signal_h - 16) * ((idx % FRAMES) / (FRAMES - 1)))
+    scan = Image.new("RGBA", signal.size, (0, 0, 0, 0))
     sd = ImageDraw.Draw(scan)
-    sy = 168
-    sd.rectangle((0, sy - 2, portrait.width, sy + 2), fill=(50, 238, 255, 185))
-    scan = scan.filter(ImageFilter.GaussianBlur(1.2))
+    sd.rectangle((0, scan_y - 1, signal_w, scan_y + 2), fill=(45, 240, 255, 210))
+    scan = scan.filter(ImageFilter.GaussianBlur(1.0))
     signal = Image.alpha_composite(signal, scan)
 
-    canvas.alpha_composite(signal, (px, py))
-    d.rounded_rectangle((px, py, px + portrait.width, py + portrait.height), radius=16, outline=cyan, width=2)
-    d.text((58, 428), "> PORTRAIT.SIGNAL = 20%   •   BINARY_STREAM.ACTIVE", font=font(11), fill=(140, 166, 187, 255))
+    # Occasional tiny glitch bars.
+    if idx in {7, 8, 19, 20, 29}:
+        gd = ImageDraw.Draw(signal)
+        for gy in (72, 164, 228):
+            gd.rectangle((0, gy, signal_w, gy + 2), fill=(70, 255, 230, 95))
 
-    # Right panel info
+    px, py = 48, 116
+    canvas.alpha_composite(signal, (px, py))
+    d.rounded_rectangle((px, py, px + signal_w, py + signal_h), radius=14, outline=cyan, width=2)
+    d.text((52, 397), "> PORTRAIT.SIGNAL = 20%  •  BINARY_STREAM.ACTIVE", font=font(9), fill=(140, 166, 187, 255))
+
+    # Right-side information
     rows_info = [
         ("Name", "Jihad Tiazziti", white),
         ("Role", "Mobile Application Developer", white),
@@ -116,21 +127,49 @@ def main():
         ("Focus", "Android & Mobile Apps", white),
         ("Current", "J-Shop", white),
     ]
-    y = 150
+    y = 137
     for label, value, value_color in rows_info:
-        d.text((610, y), label, font=font(16), fill=muted)
-        d.text((790, y), value, font=font(16, label == "Name"), fill=value_color)
-        d.line((610, y + 28, 1134, y + 28), fill=line, width=1)
-        y += 47
+        d.text((550, y), label, font=font(14), fill=muted)
+        d.text((712, y), value, font=font(14, label == "Name"), fill=value_color)
+        d.line((550, y + 25, 1045, y + 25), fill=line, width=1)
+        y += 43
 
-    d.text((600, 423), "{>} READY_FOR_NEW_OPPORTUNITIES.exe", font=font(13), fill=green)
+    # Animated terminal status cursor.
+    status = "{>} READY_FOR_NEW_OPPORTUNITIES.exe"
+    d.text((550, 387), status, font=font(11), fill=green)
+    if (idx // 4) % 2 == 0:
+        cursor_x = 550 + int(d.textlength(status, font=font(11))) + 5
+        d.rectangle((cursor_x, 390, cursor_x + 6, 401), fill=green)
 
     # Footer identity
-    d.text((600, 474), "Jihad Tiazziti", anchor="ma", font=font(34, True), fill=white)
-    d.text((600, 510), "MOBILE APPLICATION DEVELOPER", anchor="ma", font=font(14), fill=cyan)
+    d.text((W // 2, 445), "Jihad Tiazziti", anchor="ma", font=font(30, True), fill=white)
+    d.text((W // 2, 474), "MOBILE APPLICATION DEVELOPER", anchor="ma", font=font(12), fill=cyan)
 
-    canvas.convert("RGB").save(OUT, quality=94, optimize=True)
-    print(f"Generated {OUT}")
+    return canvas.convert("RGB")
+
+
+def main():
+    OUT_GIF.parent.mkdir(parents=True, exist_ok=True)
+    src = Image.open(SRC).convert("RGB")
+
+    frames = [build_frame(src, i) for i in range(FRAMES)]
+
+    # Save a static fallback/preview too.
+    frames[0].save(OUT_PNG, optimize=True)
+
+    # Shared adaptive palette keeps the GIF compact and avoids palette flicker.
+    palette = frames[0].convert("P", palette=Image.Palette.ADAPTIVE, colors=112)
+    gif_frames = [f.quantize(palette=palette, dither=Image.Dither.FLOYDSTEINBERG) for f in frames]
+    gif_frames[0].save(
+        OUT_GIF,
+        save_all=True,
+        append_images=gif_frames[1:],
+        duration=DURATION,
+        loop=0,
+        optimize=True,
+        disposal=2,
+    )
+    print(f"Generated {OUT_GIF} and {OUT_PNG}")
 
 
 if __name__ == "__main__":
