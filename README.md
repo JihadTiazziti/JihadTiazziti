@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./github_profile_card_jihad.png" width="100%" alt="Jihad Tiazziti - Mobile Application Developer"/>
+<img src="./assets/profile-animation.gif" width="100%" alt="Jihad Tiazziti - Mobile Application Developer"/>
 
 <br/>
 
