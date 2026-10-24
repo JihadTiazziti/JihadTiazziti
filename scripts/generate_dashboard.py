@@ -5,7 +5,7 @@ import math
 SRC = Path("github_profile_card_jihad (1).png")
 OUT_GIF = Path("assets/profile-dashboard.gif")
 OUT_PNG = Path("assets/profile-dashboard.png")
-W, H = 1100, 495
+W, H = 1100, 525
 FRAMES = 32
 DURATION = 105
 
@@ -23,11 +23,14 @@ def font(size, bold=False):
     return ImageFont.load_default()
 
 
-def fit_contain(im, size):
+def fit_cover(im, size):
     tw, th = size
-    ratio = min(tw / im.width, th / im.height)
+    ratio = max(tw / im.width, th / im.height)
     nw, nh = max(1, round(im.width * ratio)), max(1, round(im.height * ratio))
-    return im.resize((nw, nh), Image.Resampling.LANCZOS)
+    im = im.resize((nw, nh), Image.Resampling.LANCZOS)
+    left = max(0, (nw - tw) // 2)
+    top = max(0, (nh - th) // 2)
+    return im.crop((left, top, left + tw, top + th))
 
 
 def build_frame(src, idx):
@@ -51,8 +54,8 @@ def build_frame(src, idx):
     d.text((820, 27), "// BUILD SOMETHING USEFUL >_", font=font(12), fill=(90, 167, 255, 255))
 
     # Main panels
-    left_box = (28, 70, 505, 410)
-    right_box = (525, 70, 1072, 410)
+    left_box = (28, 70, 505, 414)
+    right_box = (525, 70, 1072, 414)
     panel_fill = (5, 19, 29, 248)
     d.rounded_rectangle(left_box, radius=16, fill=panel_fill, outline=(30, 151, 190, 255), width=2)
     d.rounded_rectangle(right_box, radius=16, fill=panel_fill, outline=(30, 151, 190, 255), width=2)
@@ -66,20 +69,21 @@ def build_frame(src, idx):
     r = 4 + int(2 * (0.5 + 0.5 * math.sin(t * math.tau * 2)))
     d.ellipse((1038-r, 96-r, 1038+r, 96+r), fill=(53, 255, 158, pulse))
 
-    # Build a smaller portrait inside the visual map (no face zoom).
-    portrait_source = src.crop((0, 0, min(500, src.width), src.height)).convert("RGBA")
-    portrait = fit_contain(portrait_source, (355, 275))
+    # Extract the portrait from the left side of the original card.
+    # Tight crop + controlled cover prevents both giant-face zoom and tiny portrait syndrome.
+    portrait_source = src.crop((25, 20, min(455, src.width), min(600, src.height))).convert("RGBA")
+    portrait = fit_cover(portrait_source, (300, 270))
 
     signal_w, signal_h = 410, 285
     signal = Image.new("RGBA", (signal_w, signal_h), (2, 15, 23, 255))
     sx = (signal_w - portrait.width) // 2
     sy = (signal_h - portrait.height) // 2
 
-    # Keep the portrait visible but secondary to the cyber signal.
+    # Portrait remains recognizable but the cyber layer is still dominant.
     p = portrait.copy()
-    p.putalpha(150)
+    p.putalpha(122)
     signal.alpha_composite(p, (sx, sy))
-    signal = Image.alpha_composite(signal, Image.new("RGBA", signal.size, (0, 24, 36, 82)))
+    signal = Image.alpha_composite(signal, Image.new("RGBA", signal.size, (0, 24, 36, 92)))
 
     # Moving binary stream.
     bd = ImageDraw.Draw(signal)
@@ -94,7 +98,7 @@ def build_frame(src, idx):
     y = 10 - (idx % 5)
     row_idx = phase
     while y < signal_h - 4:
-        alpha = 105 + ((row_idx + idx) % 3) * 22
+        alpha = 118 + ((row_idx + idx) % 3) * 18
         bd.text((10, y), rows[row_idx % len(rows)], font=bin_font, fill=(50, 232, 255, alpha))
         y += 17
         row_idx += 1
@@ -116,7 +120,7 @@ def build_frame(src, idx):
     px, py = 48, 116
     canvas.alpha_composite(signal, (px, py))
     d.rounded_rectangle((px, py, px + signal_w, py + signal_h), radius=14, outline=cyan, width=2)
-    d.text((52, 397), "> PORTRAIT.SIGNAL = 20%  •  BINARY_STREAM.ACTIVE", font=font(9), fill=(140, 166, 187, 255))
+    d.text((52, 399), "> PORTRAIT.SIGNAL = 20%  •  BINARY_STREAM.ACTIVE", font=font(9), fill=(140, 166, 187, 255))
 
     # Right-side information
     rows_info = [
@@ -141,9 +145,9 @@ def build_frame(src, idx):
         cursor_x = 550 + int(d.textlength(status, font=font(11))) + 5
         d.rectangle((cursor_x, 390, cursor_x + 6, 401), fill=green)
 
-    # Footer identity
-    d.text((W // 2, 445), "Jihad Tiazziti", anchor="ma", font=font(30, True), fill=white)
-    d.text((W // 2, 474), "MOBILE APPLICATION DEVELOPER", anchor="ma", font=font(12), fill=cyan)
+    # Cleaner footer identity: smaller and safely inside the card.
+    d.text((W // 2, 462), "Jihad Tiazziti", anchor="ma", font=font(25, True), fill=white)
+    d.text((W // 2, 491), "MOBILE APPLICATION DEVELOPER", anchor="ma", font=font(11), fill=cyan)
 
     return canvas.convert("RGB")
 
@@ -153,11 +157,8 @@ def main():
     src = Image.open(SRC).convert("RGB")
 
     frames = [build_frame(src, i) for i in range(FRAMES)]
-
-    # Save a static fallback/preview too.
     frames[0].save(OUT_PNG, optimize=True)
 
-    # Shared adaptive palette keeps the GIF compact and avoids palette flicker.
     palette = frames[0].convert("P", palette=Image.Palette.ADAPTIVE, colors=112)
     gif_frames = [f.quantize(palette=palette, dither=Image.Dither.FLOYDSTEINBERG) for f in frames]
     gif_frames[0].save(
