@@ -20,7 +20,7 @@
 
 <br>
 
-<img src="https://komarev.com/ghpvc/?username=JihadTiazziti&style=flat&color=22d3ee&label=profile+views" alt="Profile views"/>
+<img src="https://profile-counter.glitch.me/JihadTiazziti/count.svg" alt="Profile views"/>
 
 </div>
 
