@@ -70,6 +70,20 @@
 
 ---
 
+## 🔥 `ACTIVITY_LOG`
+
+<div align="center">
+
+<img src="https://streak-stats.demolab.com?user=JihadTiazziti&theme=github-dark-blue&hide_border=true&background=00000000" alt="Jihad Tiazziti GitHub streak" />
+
+<br/>
+
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=JihadTiazziti&theme=github-compact&hide_border=true&area=true" width="100%" alt="Jihad Tiazziti GitHub activity graph" />
+
+</div>
+
+---
+
 ## 🐍 `CONTRIBUTION_PROTOCOL`
 
 <div align="center">
@@ -95,6 +109,10 @@
 <a href="https://github.com/JihadTiazziti">
 <img src="https://img.shields.io/badge/GITHUB-181717?style=for-the-badge&logo=github&logoColor=white"/>
 </a>
+
+<br/><br/>
+
+<img src="https://img.shields.io/badge/OPEN%20TO-INTERNSHIPS%20%26%20JUNIOR%20ROLES-00C2FF?style=flat-square" />
 
 </div>
 
