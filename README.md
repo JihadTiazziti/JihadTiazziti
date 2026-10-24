@@ -1,26 +1,16 @@
 <div align="center">
 
-# ⚡ JIHAD TIAZZITI
-
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=25&duration=2500&pause=700&color=00FF9C&center=true&vCenter=true&width=700&lines=%3E+Mobile+Application+Developer;%3E+Android+%7C+Kotlin+%7C+Flutter;%3E+Turning+ideas+into+real+apps...;%3E+Build.+Learn.+Improve." alt="Typing SVG" />
+<img src="./github_profile_card_jihad.png" width="100%" alt="Jihad Tiazziti - Mobile Application Developer"/>
 
 <br/>
 
-```text
-┌──────────────────────────────────────────────┐
-│ USER    : Jihad Tiazziti                     │
-│ ROLE    : Mobile Application Developer       │
-│ STACK   : Kotlin • Android • Flutter         │
-│ STATUS  : Open to opportunities              │
-│ FOCUS   : Building & improving every day     │
-└──────────────────────────────────────────────┘
-```
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=24&duration=2500&pause=700&color=00FF9C&center=true&vCenter=true&width=700&lines=%3E+Mobile+Application+Developer;%3E+Android+%7C+Kotlin+%7C+Flutter;%3E+Turning+ideas+into+real+apps...;%3E+Build.+Learn.+Improve." alt="Typing SVG" />
 
 </div>
 
 ---
 
-## 👨‍💻 `whoami`
+## 👨‍💻 `> whoami`
 
 Mobile Application Developer specialized in **Android and Kotlin**, with hands-on experience building practical mobile applications using **Firebase, Room, SQLite and REST APIs**.
 
