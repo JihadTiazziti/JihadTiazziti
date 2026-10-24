@@ -29,15 +29,15 @@ jobs:
       - name: Install Pillow
         run: pip install pillow
 
-      - name: Generate cyber dashboard
+      - name: Generate animated cyber dashboard
         run: python scripts/generate_dashboard.py
 
       - name: Commit generated dashboard
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/profile-dashboard.png
-          git diff --cached --quiet || git commit -m "Update profile dashboard"
+          git add assets/profile-dashboard.gif assets/profile-dashboard.png
+          git diff --cached --quiet || git commit -m "Update animated profile dashboard"
 
           for attempt in 1 2 3 4 5; do
             git fetch origin main
