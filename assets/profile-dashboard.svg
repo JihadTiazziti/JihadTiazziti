@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="540" viewBox="0 0 1200 540">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#06111a"/>
+      <stop offset="1" stop-color="#02070d"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071824" stop-opacity="0.96"/>
+      <stop offset="1" stop-color="#04111a" stop-opacity="0.94"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="portraitClip"><rect x="40" y="92" width="500" height="340" rx="18"/></clipPath>
+    <pattern id="grid" width="22" height="22" patternUnits="userSpaceOnUse">
+      <path d="M22 0H0V22" fill="none" stroke="#0d3a4d" stroke-width="0.7" opacity="0.45"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="540" rx="22" fill="url(#bg)"/>
+  <rect x="12" y="12" width="1176" height="516" rx="20" fill="none" stroke="#12bde8" stroke-width="2"/>
+  <rect x="24" y="62" width="1152" height="452" rx="18" fill="url(#grid)" opacity="0.42"/>
+
+  <!-- top terminal bar -->
+  <circle cx="40" cy="38" r="7" fill="#ff5f57"/>
+  <circle cx="62" cy="38" r="7" fill="#febc2e"/>
+  <circle cx="84" cy="38" r="7" fill="#28c840"/>
+  <text x="116" y="43" fill="#56ffbc" font-family="monospace" font-size="18">jihad@dev:~/profile</text>
+  <text x="915" y="43" fill="#5aa7ff" font-family="monospace" font-size="15">// BUILD SOMETHING USEFUL &gt;_</text>
+
+  <!-- left panel -->
+  <rect x="32" y="78" width="520" height="370" rx="18" fill="url(#panel)" stroke="#1e97be" stroke-width="1.5"/>
+  <text x="58" y="112" fill="#52e8ff" font-family="monospace" font-size="21" font-weight="700">● VISUAL_MAP</text>
+  <text x="444" y="112" fill="#78a5c4" font-family="monospace" font-size="13">IMG_001.JPG</text>
+
+  <g clip-path="url(#portraitClip)">
+    <image href="https://raw.githubusercontent.com/JihadTiazziti/JihadTiazziti/main/github_profile_card_jihad%20(1).png" x="40" y="92" width="870" height="340" preserveAspectRatio="xMinYMid slice"/>
+    <rect x="40" y="92" width="500" height="340" fill="#03111a" opacity="0.18"/>
+    <g fill="#26dcff" opacity="0.24" font-family="monospace" font-size="11">
+      <text x="60" y="132">01001101 11001010 00101100 10110101 01100110</text>
+      <text x="60" y="151">10100110 00110101 11001001 01010110 10010101</text>
+      <text x="60" y="170">00110110 11100101 01001011 10101001 00110110</text>
+      <text x="60" y="189">11001010 01010101 10110010 00101101 11100010</text>
+      <text x="60" y="208">01011001 10100110 00110101 11001001 01010110</text>
+      <text x="60" y="227">10100110 00110101 11001001 01010110 10010101</text>
+      <text x="60" y="246">00110110 11100101 01001011 10101001 00110110</text>
+      <text x="60" y="265">11001010 01010101 10110010 00101101 11100010</text>
+      <text x="60" y="284">01001101 11001010 00101100 10110101 01100110</text>
+      <text x="60" y="303">10100110 00110101 11001001 01010110 10010101</text>
+      <text x="60" y="322">00110110 11100101 01001011 10101001 00110110</text>
+      <text x="60" y="341">11001010 01010101 10110010 00101101 11100010</text>
+      <text x="60" y="360">01011001 10100110 00110101 11001001 01010110</text>
+      <text x="60" y="379">10100110 00110101 11001001 01010110 10010101</text>
+      <text x="60" y="398">00110110 11100101 01001011 10101001 00110110</text>
+    </g>
+    <rect x="40" y="90" width="500" height="4" fill="#31e7ff" opacity="0.65">
+      <animate attributeName="y" values="94;426;94" dur="4.8s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  <rect x="40" y="92" width="500" height="340" rx="18" fill="none" stroke="#20d8ff" stroke-width="2"/>
+  <text x="58" y="440" fill="#8ca6bb" font-family="monospace" font-size="12">&gt; PORTRAIT.RENDERED   •   BINARY_OVERLAY.ACTIVE</text>
+
+  <!-- right panel -->
+  <rect x="572" y="78" width="596" height="370" rx="18" fill="url(#panel)" stroke="#1e97be" stroke-width="1.5"/>
+  <text x="600" y="112" fill="#52e8ff" font-family="monospace" font-size="21" font-weight="700">■ SYSTEM_INFO</text>
+  <circle cx="1129" cy="103" r="6" fill="#34ff9b" filter="url(#glow)"/>
+  <text x="1050" y="108" fill="#34ff9b" font-family="monospace" font-size="13">ONLINE</text>
+
+  <g font-family="monospace" font-size="17">
+    <text x="610" y="158" fill="#6f9bc8">Name</text><text x="790" y="158" fill="#edf6ff" font-weight="700">Jihad Tiazziti</text>
+    <line x1="610" y1="174" x2="1134" y2="174" stroke="#123d50"/>
+    <text x="610" y="205" fill="#6f9bc8">Role</text><text x="790" y="205" fill="#edf6ff">Mobile Application Developer</text>
+    <line x1="610" y1="221" x2="1134" y2="221" stroke="#123d50"/>
+    <text x="610" y="252" fill="#6f9bc8">Stack</text><text x="790" y="252" fill="#edf6ff">Kotlin / Android / Flutter / Firebase</text>
+    <line x1="610" y1="268" x2="1134" y2="268" stroke="#123d50"/>
+    <text x="610" y="299" fill="#6f9bc8">Status</text><text x="790" y="299" fill="#35ff9e">● Open to opportunities</text>
+    <line x1="610" y1="315" x2="1134" y2="315" stroke="#123d50"/>
+    <text x="610" y="346" fill="#6f9bc8">Focus</text><text x="790" y="346" fill="#edf6ff">Android &amp; Mobile Apps</text>
+    <line x1="610" y1="362" x2="1134" y2="362" stroke="#123d50"/>
+    <text x="610" y="393" fill="#6f9bc8">Current</text><text x="790" y="393" fill="#edf6ff">J-Shop</text>
+  </g>
+  <text x="600" y="430" fill="#39ffaf" font-family="monospace" font-size="14">{&gt;} READY_FOR_NEW_OPPORTUNITIES.exe</text>
+
+  <!-- footer identity -->
+  <text x="600" y="488" text-anchor="middle" fill="#f4f8ff" font-family="monospace" font-size="35" font-weight="700">Jihad Tiazziti</text>
+  <text x="600" y="515" text-anchor="middle" fill="#44cfff" font-family="monospace" font-size="15" letter-spacing="4">MOBILE APPLICATION DEVELOPER</text>
+</svg>

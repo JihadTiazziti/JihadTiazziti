@@ -1,61 +1,14 @@
 <div align="center">
 
-<img src="./assets/profile-animation.gif" width="100%" alt="Jihad Tiazziti - Mobile Application Developer"/>
-
-<br/>
-
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=24&duration=2500&pause=700&color=00FF9C&center=true&vCenter=true&width=700&lines=%3E+Mobile+Application+Developer;%3E+Android+%7C+Kotlin+%7C+Flutter;%3E+Turning+ideas+into+real+apps...;%3E+Build.+Learn.+Improve." alt="Typing SVG" />
+<img src="./assets/profile-dashboard.svg" width="100%" alt="Jihad Tiazziti cyber developer profile dashboard"/>
 
 </div>
 
 ---
 
-## 👨‍💻 `> whoami`
-
-Mobile Application Developer specialized in **Android and Kotlin**, with hands-on experience building practical mobile applications using **Firebase, Room, SQLite and REST APIs**.
-
-I enjoy turning ideas into functional apps, solving technical problems and continuously improving my development skills.
-
-🎯 Currently open to **internship and junior Mobile / Android Developer opportunities**.
-
-```kotlin
-class JihadTiazziti {
-
-    val role = "Mobile Application Developer"
-
-    val mobile = listOf(
-        "Kotlin",
-        "Android SDK",
-        "Flutter",
-        "Dart"
-    )
-
-    val backendAndData = listOf(
-        "Firebase",
-        "Room",
-        "SQLite",
-        "SQL",
-        "REST APIs"
-    )
-
-    val tools = listOf(
-        "Git",
-        "GitHub",
-        "Figma",
-        "Android Studio",
-        "VS Code"
-    )
-
-    fun goal() =
-        "Turn ideas into useful applications 🚀"
-}
-```
-
----
+## ⚙️ `TECH_STACK.exe`
 
 <div align="center">
-
-## ⚙️ `TECH_STACK.exe`
 
 <img src="https://skillicons.dev/icons?i=kotlin,androidstudio,flutter,dart,firebase,sqlite,git,github,figma,vscode&perline=10" />
 
@@ -113,16 +66,6 @@ TYPE          Inventory Management
 
 ---
 
-## 🔥 `ACTIVITY_LOG`
-
-<div align="center">
-
-<img src="https://streak-stats.demolab.com?user=JihadTiazziti&theme=github-dark-blue&hide_border=true&background=00000000" />
-
-</div>
-
----
-
 ## 🐍 `CONTRIBUTION_PROTOCOL`
 
 <div align="center">
@@ -151,7 +94,7 @@ TYPE          Inventory Management
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&height=100&color=0:00FF9C,100:00B86B&section=footer"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&height=90&color=0:00FF9C,100:00B86B&section=footer"/>
 
 ```text
 > Thanks for visiting.
