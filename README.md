@@ -1,6 +1,10 @@
 <div align="center">
 
-<img src="assets/profile-dashboard.gif" width="100%" alt="Jihad Tiazziti animated developer dashboard"/>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/banner-light.svg">
+  <img src="assets/banner-dark.svg" width="100%" alt="Jihad Tiazziti live terminal profile">
+</picture>
 
 <br>
 
@@ -12,7 +16,7 @@
 
 <a href="https://www.linkedin.com/in/jihad-tiazziti/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>&nbsp;&nbsp;
 <a href="https://jihadtiazziti.netlify.app"><img src="https://img.shields.io/badge/Portfolio-0d1117?style=for-the-badge&logo=googlechrome&logoColor=22d3ee" alt="Portfolio"></a>&nbsp;&nbsp;
-<a href="https://www.instagram.com/ry_vnn17/"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram"></a>
+<a href="https://www.instagram.com/ry_vnn17/"><img src="https://img.shields.io/badge/@ry__vnn17-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram @ry_vnn17"></a>
 
 <br>
 
