@@ -78,7 +78,7 @@
 
 <br/><br/>
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=JihadTiazziti&bg_color=0d1117&color=58a6ff&line=00ff9c&point=ffffff&area_color=00ff9c&area=true&hide_border=true&custom_title=Contribution%20Activity" width="100%" alt="Jihad Tiazziti contribution activity graph" />
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=JihadTiazziti&theme=github_dark&animation=load&duration=2" width="100%" alt="Jihad Tiazziti GitHub activity details" />
 
 </div>
 
