@@ -1,0 +1,11 @@
+{
+  "title": "Tools & Data",
+  "items": [
+    {"label": "Room / SQLite", "value": 8},
+    {"label": "Git / GitHub", "value": 8},
+    {"label": "Figma", "value": 7},
+    {"label": "SQL", "value": 7},
+    {"label": "Android Studio", "value": 9},
+    {"label": "VS Code", "value": 7}
+  ]
+}
