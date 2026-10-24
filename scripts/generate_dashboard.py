@@ -23,13 +23,18 @@ def font(size, bold=False):
     return ImageFont.load_default()
 
 
-def fit_cover(im, size):
+def fit_cover(im, size, top_bias=0.5):
     tw, th = size
     ratio = max(tw / im.width, th / im.height)
     nw, nh = round(im.width * ratio), round(im.height * ratio)
     im = im.resize((nw, nh), Image.Resampling.LANCZOS)
     left = max(0, (nw - tw) // 2)
-    top = max(0, (nh - th) // 2)
+
+    # top_bias controls vertical framing: 0 = keep the very top, 0.5 = centered.
+    # A small value keeps the hair/head fully visible and naturally lowers the face.
+    max_top = max(0, nh - th)
+    top = int(max_top * max(0.0, min(1.0, top_bias)))
+
     return im.crop((left, top, left + tw, top + th))
 
 
@@ -44,7 +49,6 @@ def build_frame(base_source, idx):
     d = ImageDraw.Draw(canvas)
 
     cyan = (38, 222, 255, 255)
-    cyan2 = (72, 234, 255, 255)
     green = (53, 255, 158, 255)
     white = (237, 246, 255, 255)
     muted = (112, 155, 200, 255)
@@ -79,15 +83,16 @@ def build_frame(base_source, idx):
     # extract portrait source from the left side of the uploaded card
     portrait_source = base_source.crop((0, 0, min(500, base_source.width), base_source.height))
 
-    # more visible face
-    portrait = fit_cover(portrait_source, (300, 270))
+    # Frame the portrait from higher up so the full hair/head remains visible.
+    # This also makes the face sit slightly lower inside VISUAL_MAP.
+    portrait = fit_cover(portrait_source, (300, 270), top_bias=0.08)
     portrait = ImageEnhance.Contrast(portrait.convert("RGB")).enhance(1.18).convert("RGBA")
     portrait = ImageEnhance.Brightness(portrait).enhance(1.05).convert("RGBA")
 
     signal_w, signal_h = 410, 285
     signal = Image.new("RGBA", (signal_w, signal_h), (2, 15, 23, 255))
     sx = (signal_w - portrait.width) // 2
-    sy = (signal_h - portrait.height) // 2
+    sy = 11
 
     p = portrait.copy()
     p.putalpha(160)
