@@ -1,9 +1,9 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/banner-light.svg">
-  <img src="assets/banner-dark.svg" width="100%" alt="Jihad Tiazziti live terminal profile">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg?v=signal-4">
+  <source media="(prefers-color-scheme: light)" srcset="assets/banner-light.svg?v=signal-4">
+  <img src="assets/banner-dark.svg?v=signal-4" width="100%" alt="Jihad Tiazziti live terminal profile">
 </picture>
 
 <br>

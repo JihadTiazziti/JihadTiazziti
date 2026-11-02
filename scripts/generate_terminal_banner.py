@@ -109,9 +109,9 @@ def render(theme_name: str):
         f'<rect x="49" y="124" width="390" height="414" rx="3" fill="{t["bg"]}" stroke="{t["line"]}"/>',
         f'<g clip-path="url(#visualClip)" fill="{t["portrait"]}" opacity=".88"><path d="{portrait}"/></g>',
         # subtle scan line animation
-        f'<g clip-path="url(#visualClip)"><rect x="94" y="154" width="300" height="3" fill="#FFFFFF" opacity=".82" filter="url(#glow)"><animate attributeName="y" values="154;493;154" dur="5.2s" repeatCount="indefinite"/></rect></g>',
+        f'<g clip-path="url(#visualClip)"><rect x="94" y="154" width="300" height="4" fill="#FFFFFF" opacity=".9" filter="url(#glow)"><animate attributeName="y" values="154;493;154" dur="5.2s" repeatCount="indefinite"/></rect></g>',
         # Brief lightning-like signal pulse, kept beside the face.
-        '<g opacity="0"><animate attributeName="opacity" values="0;0;.7;0;0" keyTimes="0;.68;.70;.74;1" dur="7s" repeatCount="indefinite"/><rect x="94" y="154" width="300" height="340" fill="#B9F5FF" opacity=".10"/><path d="M372 170L356 209L375 204L351 251L367 244L343 286" fill="none" stroke="#72E8FF" stroke-width="5" opacity=".35"/><path d="M372 170L356 209L375 204L351 251L367 244L343 286" fill="none" stroke="#E0FCFF" stroke-width="1.8" stroke-linejoin="round"/><path d="M359 236L383 247L372 267" fill="none" stroke="#B9F5FF" stroke-width="1" opacity=".6"/></g>',
+        '<g opacity=".35"><animate attributeName="opacity" values=".35;.35;1;.35;.35" keyTimes="0;.35;.45;.70;1" dur="4s" repeatCount="indefinite"/><rect x="94" y="154" width="300" height="340" fill="#B9F5FF" opacity=".10"/><path d="M372 170L356 209L375 204L351 251L367 244L343 286" fill="none" stroke="#72E8FF" stroke-width="5" opacity=".35"/><path d="M372 170L356 209L375 204L351 251L367 244L343 286" fill="none" stroke="#E0FCFF" stroke-width="3" stroke-linejoin="round"/><path d="M359 236L383 247L372 267" fill="none" stroke="#B9F5FF" stroke-width="1" opacity=".6"/></g>',
         # pulse frame
         f'<rect x="84" y="144" width="320" height="360" rx="2" fill="none" stroke="{t["chrome"]}" opacity=".45"><animate attributeName="opacity" values=".18;.55;.18" dur="3.8s" repeatCount="indefinite"/></rect>',
         f'<text x="57" y="552" fill="{t["muted"]}" font-family="monospace" font-size="10">PORTRAIT.DITHER = ACTIVE  ·  SIGNAL.LOCKED</text>',
