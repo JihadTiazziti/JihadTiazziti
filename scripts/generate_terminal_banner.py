@@ -3,7 +3,7 @@ from PIL import Image, ImageOps, ImageEnhance, ImageFilter
 import html
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "github_profile_card_jihad (1).png"
+SOURCE = ROOT / "assets" / "portrait-source.jpg"
 ASSETS = ROOT / "assets"
 W, H = 1180, 610
 
@@ -53,11 +53,11 @@ def fit_crop(im, size, top_bias=0.08):
 def portrait_points(theme: str):
     source = Image.open(SOURCE).convert("RGB")
     # Existing source card contains the portrait on the left side.
-    crop = source.crop((0, 0, min(500, source.width), source.height))
+    crop = source
     crop = fit_crop(crop, (300, 340), top_bias=0.04)
     gray = ImageOps.grayscale(crop)
     gray = ImageOps.autocontrast(gray, cutoff=1)
-    gray = ImageEnhance.Contrast(gray).enhance(1.8)
+    gray = ImageEnhance.Contrast(gray).enhance(1.15)
     gray = gray.filter(ImageFilter.UnsharpMask(radius=1.6, percent=180, threshold=2))
 
     # 1-bit Floyd-Steinberg gives the same crisp terminal-map feel.
@@ -69,9 +69,9 @@ def portrait_points(theme: str):
             lit = px[x, y] != 0
             if (theme == "dark" and lit) or (theme == "light" and not lit):
                 # Sample every second point in dense zones for a cleaner face silhouette.
-                if ((x + y) % 2 == 0) or (60 < x < 240 and 35 < y < 255):
-                    pts.append((74 + x, 154 + y))
-    return pts[:19000]
+                if True:
+                    pts.append((94 + x, 154 + y))
+    return pts
 
 
 def points_path(points):
@@ -109,9 +109,9 @@ def render(theme_name: str):
         f'<rect x="49" y="124" width="390" height="414" rx="3" fill="{t["bg"]}" stroke="{t["line"]}"/>',
         f'<g clip-path="url(#visualClip)" fill="{t["portrait"]}" opacity=".88"><path d="{portrait}"/></g>',
         # subtle scan line animation
-        f'<g clip-path="url(#visualClip)"><rect x="49" y="128" width="390" height="2" fill="#FFFFFF" opacity=".72" filter="url(#glow)"><animate attributeName="y" values="128;532;128" dur="6s" repeatCount="indefinite"/></rect></g>',
+        f'<g clip-path="url(#visualClip)"><rect x="94" y="154" width="300" height="2" fill="#FFFFFF" opacity=".72" filter="url(#glow)"><animate attributeName="y" values="154;493;154" dur="6s" repeatCount="indefinite"/></rect></g>',
         # pulse frame
-        f'<rect x="70" y="145" width="285" height="360" rx="2" fill="none" stroke="{t["chrome"]}" opacity=".45"><animate attributeName="opacity" values=".18;.55;.18" dur="3.8s" repeatCount="indefinite"/></rect>',
+        f'<rect x="84" y="144" width="320" height="360" rx="2" fill="none" stroke="{t["chrome"]}" opacity=".45"><animate attributeName="opacity" values=".18;.55;.18" dur="3.8s" repeatCount="indefinite"/></rect>',
         f'<text x="57" y="552" fill="{t["muted"]}" font-family="monospace" font-size="10">PORTRAIT.DITHER = ACTIVE  ·  SIGNAL.LOCKED</text>',
         # right panel
         f'<rect x="475" y="89" width="669" height="468" rx="8" fill="{t["panel2"]}" stroke="{t["line"]}"/>',
@@ -147,3 +147,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
