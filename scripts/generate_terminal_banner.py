@@ -109,7 +109,7 @@ def render(theme_name: str):
         f'<rect x="49" y="124" width="390" height="414" rx="3" fill="{t["bg"]}" stroke="{t["line"]}"/>',
         f'<g clip-path="url(#visualClip)" fill="{t["portrait"]}" opacity=".88"><path d="{portrait}"/></g>',
         # subtle scan line animation
-        f'<g clip-path="url(#visualClip)"><rect x="94" y="154" width="300" height="2" fill="#FFFFFF" opacity=".72" filter="url(#glow)"><animate attributeName="y" values="154;493;154" dur="6s" repeatCount="indefinite"/></rect></g>',
+        f'<g clip-path="url(#visualClip)"><rect x="94" y="154" width="300" height="3" fill="#FFFFFF" opacity=".82" filter="url(#glow)"><animate attributeName="y" values="154;493;154" dur="5.2s" repeatCount="indefinite"/></rect></g>',
         # pulse frame
         f'<rect x="84" y="144" width="320" height="360" rx="2" fill="none" stroke="{t["chrome"]}" opacity=".45"><animate attributeName="opacity" values=".18;.55;.18" dur="3.8s" repeatCount="indefinite"/></rect>',
         f'<text x="57" y="552" fill="{t["muted"]}" font-family="monospace" font-size="10">PORTRAIT.DITHER = ACTIVE  ·  SIGNAL.LOCKED</text>',
